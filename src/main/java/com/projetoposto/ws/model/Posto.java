@@ -1,5 +1,7 @@
 package com.projetoposto.ws.model;
 
+import java.util.List;
+
 import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 
@@ -20,6 +22,10 @@ public class Posto {
 	private String preco;
 	@Column
 	private String TipoCombustivel;
+	@Column
+	@OneToMany(mappedBy = "task", cascade = CascadeType.ALL)
+	private List<Posto> listaDePostos;
+	
 	public Long getId() {
 		return id;
 	}

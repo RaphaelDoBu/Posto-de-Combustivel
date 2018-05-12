@@ -1,9 +1,13 @@
 package com.projetoposto.ws.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Cliente {
@@ -16,7 +20,11 @@ public class Cliente {
 	private String username;
 	@Column
 	private String password;
-	
+	@Column
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+	private List<Posto> posto;
+
+
 	public Cliente(){
 		
 	}
@@ -55,6 +63,11 @@ public class Cliente {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+	public List<Posto> getPosto() {
+		return posto;
+	}
+	public void setPosto(List<Posto> posto) {
+		this.posto = posto;
+	}	
 	
 }
