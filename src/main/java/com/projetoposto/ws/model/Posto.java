@@ -19,13 +19,24 @@ public class Posto {
 	@Column
 	private String password;
 	@Column
-	private String preco;
-	@Column
-	private String TipoCombustivel;
+	private String cnpj;
 	@Column
 	@OneToMany(mappedBy = "task", cascade = CascadeType.ALL)
 	private List<Posto> listaDePostos;
 	
+	
+	public Posto(){
+		
+	}
+	
+	public Posto( String nome, String endereco, String username, String password, String cnpj) {
+		this.nome = nome;
+		this.endereco = endereco;
+		this.username = username;
+		this.password = password;
+		this.cnpj = cnpj;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -56,18 +67,17 @@ public class Posto {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getPreco() {
-		return preco;
+	public String getCNPJ() {
+		return cnpj;
 	}
-	public void setPreco(String preco) {
-		this.preco = preco;
-	}
-	public String getTipoCombustivel() {
-		return TipoCombustivel;
-	}
-	public void setTipoCombustivel(String tipoCombustivel) {
-		TipoCombustivel = tipoCombustivel;
+	public void setCNPJ(String cnpj) {
+		this.cnpj = cnpj;
 	}
 
-	
+	public List<Posto> getListaDePostos() {
+		return listaDePostos;
+	}
+	public void setListaDePostos(List<Posto> listaDePostos) {
+		this.listaDePostos = listaDePostos;
+	}
 }

@@ -8,5 +8,6 @@ import com.projetoposto.ws.model.Cliente;
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 	
 	
+	
 
 }

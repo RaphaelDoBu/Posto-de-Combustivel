@@ -17,6 +17,8 @@ public class Cliente {
 	@Column
 	private String nome;
 	@Column
+	private String email;
+	@Column
 	private String username;
 	@Column
 	private String password;
@@ -30,9 +32,8 @@ public class Cliente {
 	}
 	
 
-	public Cliente(Long id, String nome, String username, String password) {
+	public Cliente(String nome, String username, String password) {
 		super();
-		this.id = id;
 		this.nome = nome;
 		this.username = username;
 		this.password = password;
@@ -50,6 +51,12 @@ public class Cliente {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getUsername() {
 		return username;
