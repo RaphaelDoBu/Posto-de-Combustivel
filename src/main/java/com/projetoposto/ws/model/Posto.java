@@ -21,8 +21,10 @@ public class Posto {
 	@Column
 	private String cnpj;
 	@Column
-	@OneToMany(mappedBy = "task", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "posto", cascade = CascadeType.ALL)
 	private List<Posto> listaDePostos;
+	@OneToMany(mappedBy = "posto", cascade = CascadeType.ALL)
+	private List<Combustivel> listaDeCombustiveis;
 	
 	
 	public Posto(){
@@ -79,5 +81,12 @@ public class Posto {
 	}
 	public void setListaDePostos(List<Posto> listaDePostos) {
 		this.listaDePostos = listaDePostos;
+	}
+
+	public List<Combustivel> getListaDeCombustiveis() {
+		return listaDeCombustiveis;
+	}
+	public void setListaDeCombustiveis(List<Combustivel> listaDeCombustiveis) {
+		this.listaDeCombustiveis = listaDeCombustiveis;
 	}
 }

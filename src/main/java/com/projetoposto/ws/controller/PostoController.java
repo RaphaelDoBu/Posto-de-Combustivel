@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.projetoposto.ws.model.Cliente;
 import com.projetoposto.ws.model.Posto;
+import com.projetoposto.ws.repository.CombustivelRepository;
 import com.projetoposto.ws.repository.PostoRepository;
 
 @RestController
@@ -18,6 +19,9 @@ public class PostoController {
 	
 	@Autowired
 	private PostoRepository postoRepository;
+	
+	@Autowired
+	private CombustivelRepository combustivelRepository;
 	
 	@GetMapping("/postos")
 	public List<Posto> getPostos(){
