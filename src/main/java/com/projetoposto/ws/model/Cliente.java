@@ -6,14 +6,14 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Cliente {
 	
-	@Id @GeneratedValue
-	private Long id;
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)	private Long id;
 	@Column
 	private String nome;
 	@Column
@@ -24,7 +24,7 @@ public class Cliente {
 	private String password;
 	@Column
 	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
-	private List<Posto> posto;
+	private List<Posto> postos;
 
 
 	public Cliente(){
@@ -70,11 +70,11 @@ public class Cliente {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public List<Posto> getPosto() {
-		return posto;
+	public List<Posto> getPostos() {
+		return postos;
 	}
-	public void setPosto(List<Posto> posto) {
-		this.posto = posto;
+	public void setPosto(List<Posto> postos) {
+		this.postos = postos;
 	}	
 	
 }
