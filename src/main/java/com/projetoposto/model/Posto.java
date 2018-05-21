@@ -1,4 +1,4 @@
-package com.projetoposto.ws.model;
+package com.projetoposto.model;
 
 import java.util.List;
 
@@ -20,13 +20,21 @@ public class Posto {
 	private String password;
 	@Column
 	private String cnpj;
-	@Column
-	@OneToMany(mappedBy = "posto", cascade = CascadeType.ALL)
-	private List<Posto> listaDePostos;
-	@OneToMany(mappedBy = "posto", cascade = CascadeType.ALL)
-	private List<Combustivel> listaDeCombustiveis;
-	
-	
+//	@OneToMany(mappedBy = "posto_id", cascade = CascadeType.ALL)
+//	private List<Posto> listaDePostos;
+//	@OneToMany(mappedBy = "posto", cascade = CascadeType.ALL)
+//	private List<Combustivel> listaDeCombustiveis;
+//	
+	@ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                CascadeType.PERSIST,
+                CascadeType.MERGE
+            })
+    @JoinTable(name = "posto_cliente",
+            joinColumns = { @JoinColumn(name = "posto_id") },
+            inverseJoinColumns = { @JoinColumn(name = "cliente_id") })
+	private List<Cliente> listaDeClientes;
+
 	public Posto(){
 		
 	}
@@ -75,18 +83,18 @@ public class Posto {
 	public void setCNPJ(String cnpj) {
 		this.cnpj = cnpj;
 	}
-
-	public List<Posto> getListaDePostos() {
-		return listaDePostos;
-	}
-	public void setListaDePostos(List<Posto> listaDePostos) {
-		this.listaDePostos = listaDePostos;
-	}
-
-	public List<Combustivel> getListaDeCombustiveis() {
-		return listaDeCombustiveis;
-	}
-	public void setListaDeCombustiveis(List<Combustivel> listaDeCombustiveis) {
-		this.listaDeCombustiveis = listaDeCombustiveis;
-	}
+//
+//	public List<Posto> getListaDePostos() {
+//		return listaDePostos;
+//	}
+//	public void setListaDePostos(List<Posto> listaDePostos) {
+//		this.listaDePostos = listaDePostos;
+//	}
+//
+//	public List<Combustivel> getListaDeCombustiveis() {
+//		return listaDeCombustiveis;
+//	}
+//	public void setListaDeCombustiveis(List<Combustivel> listaDeCombustiveis) {
+//		this.listaDeCombustiveis = listaDeCombustiveis;
+//	}
 }

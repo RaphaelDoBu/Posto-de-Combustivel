@@ -1,4 +1,4 @@
-package com.projetoposto.ws.model;
+package com.projetoposto.model;
 
 import java.util.List;
 
@@ -20,15 +20,14 @@ public class Avaliacao {
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)	private Long id;
 	@Column
 	private String comentario;
-	@Column
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "combustivel_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-	private Combustivel combustivel;
-	
-	public Avaliacao(String comentario, Combustivel combustivel) {
+//	@ManyToOne(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "combustivel_id", nullable = false)
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+//	private Combustivel combustivel;
+//	
+	public Avaliacao(String comentario) {
 		this.comentario = comentario;
-		this.combustivel = combustivel;
+//		this.combustivel = combustivel;
 	}
 	
 	public Long getId() {
@@ -43,12 +42,12 @@ public class Avaliacao {
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
-	public Combustivel getCombustivel() {
-		return combustivel;
-	}
-	public void setCombustivel(Combustivel combustivel) {
-		this.combustivel = combustivel;
-	}
+//	public Combustivel getCombustivel() {
+//		return combustivel;
+//	}
+//	public void setCombustivel(Combustivel combustivel) {
+//		this.combustivel = combustivel;
+//	}
 	
 	
 

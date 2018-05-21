@@ -1,4 +1,4 @@
-package com.projetoposto.ws.model;
+package com.projetoposto.model;
 
 import java.util.List;
 
@@ -25,12 +25,13 @@ public class Combustivel {
 	private float preco;
 	@Column
 	private float aumento;
-	@OneToMany(mappedBy = "combustivel", cascade = CascadeType.ALL)
-	private List<Avaliacao> avaliacoes;
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "postos_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-	private Posto posto;
+//	@OneToMany(mappedBy = "combustivel", cascade = CascadeType.ALL)
+//	private List<Avaliacao> avaliacoes;
+//	
+//	@ManyToOne(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "postos_id", nullable = false)
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+//	private Posto posto;
 	
 	public String getNome() {
 		return nome;
@@ -50,12 +51,12 @@ public class Combustivel {
 	public void setAumento(float aumento) {
 		this.aumento = aumento;
 	}
-	public Posto getPosto() {
-		return posto;
-	}
-	public void setPosto(Posto posto) {
-		this.posto = posto;
-	}	
+//	public Posto getPosto() {
+//		return posto;
+//	}
+//	public void setPosto(Posto posto) {
+//		this.posto = posto;
+//	}	
 	
 	
 	
