@@ -10,21 +10,25 @@ public class Posto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	@Column
 	private String nome;
+	
 	@Column
 	private String endereco;
+	
 	@Column
 	private String username;
+	
 	@Column
 	private String password;
+	
 	@Column
 	private String cnpj;
-//	@OneToMany(mappedBy = "posto_id", cascade = CascadeType.ALL)
-//	private List<Posto> listaDePostos;
-//	@OneToMany(mappedBy = "posto", cascade = CascadeType.ALL)
-//	private List<Combustivel> listaDeCombustiveis;
-//	
+	
+	@OneToMany(mappedBy = "posto", cascade = CascadeType.ALL)
+	private List<Combustivel> listaDeCombustiveis;
+	
 	@ManyToMany(fetch = FetchType.LAZY,
             cascade = {
                 CascadeType.PERSIST,

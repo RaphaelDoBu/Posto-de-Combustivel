@@ -17,17 +17,20 @@ import org.hibernate.annotations.OnDeleteAction;
 @Entity
 public class Avaliacao {
 	
-    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)	private Long id;
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long id;
+    
 	@Column
 	private String comentario;
-//	@ManyToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "combustivel_id", nullable = false)
-//    @OnDelete(action = OnDeleteAction.CASCADE)
-//	private Combustivel combustivel;
-//	
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "combustivel_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+	private Combustivel combustivel;
+	
 	public Avaliacao(String comentario) {
 		this.comentario = comentario;
-//		this.combustivel = combustivel;
+		this.combustivel = combustivel;
 	}
 	
 	public Long getId() {

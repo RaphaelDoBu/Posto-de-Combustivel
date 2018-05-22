@@ -14,15 +14,21 @@ import javax.persistence.Table;
 @Entity
 public class Cliente {
 	
-    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)	private Long id;
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long id;
+    
 	@Column
 	private String nome;
+	
 	@Column
 	private String email;
+	
 	@Column
 	private String username;
+	
 	@Column
 	private String password;
+	
 	@OneToMany(mappedBy = "listaDeClientes", cascade = CascadeType.ALL)
 	private List<Posto> listaDePostos;
 
