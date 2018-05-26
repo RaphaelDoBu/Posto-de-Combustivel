@@ -22,19 +22,19 @@ import com.projetoposto.model.Cliente;
 import com.projetoposto.model.Posto;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
-@Controller
+@RestController
 public class ClienteController {
 	
 	@Autowired
 	private ClienteRepository clienteRepository;
 																																																																																																													
-    @RequestMapping(method=RequestMethod.GET, value="/cliente")
-	public String getClientes(){
+    @RequestMapping(method=RequestMethod.GET, value="/clientes")
+	public List<Cliente> getClientes(){
         System.out.println("Executando a lógica com Spring MVC");
-		return "entrar";
+		return clienteRepository.findAll();
 	}
 	
-	@GetMapping(path={"/{id}"})
+    @RequestMapping(method=RequestMethod.GET, value="/cliente/{id}")
 	public Optional<Cliente> getPosto(@PathVariable("id") Long id){
 		return clienteRepository.findById(id);
 	}
@@ -44,12 +44,12 @@ public class ClienteController {
 		return clienteRepository.save(cliente);
 	}
 	
-	@DeleteMapping("/{id}")
-	public void	deletarPosto(Cliente cliente){
+    @RequestMapping(method=RequestMethod.DELETE, value="/cliente/{id}")
+    public void	deletarPosto(Cliente cliente){
 		clienteRepository.delete(cliente);
 	}
 	
-	@PutMapping
+    @RequestMapping(method=RequestMethod.PUT, value="/cliente/{id}")
 	public Cliente updateCliente(Cliente cliente){
 		return clienteRepository.save(cliente);
 	}
