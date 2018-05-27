@@ -24,6 +24,12 @@ public class Posto {
 	private String password;
 	
 	@Column
+	private String horarioAberto;
+	
+	@Column
+	private String horarioFechado;
+	
+	@Column
 	private String cnpj;
 	
 	@OneToMany(mappedBy = "posto", cascade = CascadeType.ALL)
@@ -81,12 +87,49 @@ public class Posto {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getCNPJ() {
+
+	public String getCnpj() {
 		return cnpj;
 	}
-	public void setCNPJ(String cnpj) {
+
+	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
+
+	public List<Combustivel> getListaDeCombustiveis() {
+		return listaDeCombustiveis;
+	}
+
+	public void setListaDeCombustiveis(List<Combustivel> listaDeCombustiveis) {
+		this.listaDeCombustiveis = listaDeCombustiveis;
+	}
+
+	public List<Cliente> getListaDeClientes() {
+		return listaDeClientes;
+	}
+
+	public void setListaDeClientes(List<Cliente> listaDeClientes) {
+		this.listaDeClientes = listaDeClientes;
+	}
+
+	public String getHorarioAberto() {
+		return horarioAberto;
+	}
+
+	public void setHorarioAberto(String horarioAberto) {
+		this.horarioAberto = horarioAberto;
+	}
+
+	public String getHorarioFechado() {
+		return horarioFechado;
+	}
+
+	public void setHorarioFechado(String horarioFechado) {
+		this.horarioFechado = horarioFechado;
+	}
+	
+	
+	
 //
 //	public List<Posto> getListaDePostos() {
 //		return listaDePostos;
