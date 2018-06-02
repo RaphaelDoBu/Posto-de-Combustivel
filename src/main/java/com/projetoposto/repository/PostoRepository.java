@@ -13,4 +13,5 @@ import com.projetoposto.model.Posto;
 @CrossOrigin(origins = "http://localhost:4200")
 public interface PostoRepository extends JpaRepository<Posto, Long>{
 
+	Posto findByusername(String login);
 }

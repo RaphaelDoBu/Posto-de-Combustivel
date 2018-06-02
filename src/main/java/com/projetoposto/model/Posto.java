@@ -1,6 +1,7 @@
 package com.projetoposto.model;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
 import javax.persistence.GeneratedValue;
@@ -44,10 +45,18 @@ public class Posto {
             joinColumns = { @JoinColumn(name = "posto_id") },
             inverseJoinColumns = { @JoinColumn(name = "cliente_id") })
 	private List<Cliente> listaDeClientes;
+	
+	@Column
+	private String role;
 
-	public Posto(){
-		
+	public Posto(String user, String pass){
+		this.username = user;
+		this.password = pass;
 	}
+	
+	public Posto() {
+		
+	}		
 	
 	public Posto( String nome, String endereco, String username, String password, String cnpj) {
 		this.nome = nome;
@@ -55,7 +64,7 @@ public class Posto {
 		this.username = username;
 		this.password = password;
 		this.cnpj = cnpj;
-	}
+	}																																																																																																																																																																																									
 
 	public Long getId() {
 		return id;
@@ -68,8 +77,8 @@ public class Posto {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-	public String getEndereco() {
+															}										
+							public String getEndereco() {
 		return endereco;
 	}
 	public void setEndereco(String endereco) {
@@ -128,8 +137,12 @@ public class Posto {
 		this.horarioFechado = horarioFechado;
 	}
 	
-	
-	
+
+    public String getRole() {
+        return role;
+}public void setRole(String role) {
+    this.role = role;
+}
 //
 //	public List<Posto> getListaDePostos() {
 //		return listaDePostos;

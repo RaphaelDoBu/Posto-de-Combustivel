@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import com.projetoposto.repository.CombustivelRepository;
@@ -17,6 +18,7 @@ public class PostoController {
 	
 	@Autowired
 	private PostoRepository postoRepository;
+
 	
 	@Autowired
 	private CombustivelRepository combustivelRepository;
@@ -47,5 +49,15 @@ public class PostoController {
 		return postoRepository.save(posto);
 	}
 	
+
+    public PostoController(PostoRepository applicationUserRepository) {
+        this.postoRepository = applicationUserRepository;
+    }
+
+//    @PostMapping("/users/sign-up")
+//    public void signUp(@RequestBody Posto user) {
+//        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+//        postoRepository.save(user);
+//    }
 
 }
