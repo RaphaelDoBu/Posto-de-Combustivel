@@ -30,7 +30,10 @@ public class Avaliacao {
 	
 	public Avaliacao(String comentario) {
 		this.comentario = comentario;
-		this.combustivel = combustivel;
+	}
+	
+	public Avaliacao() {
+	
 	}
 	
 	public Long getId() {

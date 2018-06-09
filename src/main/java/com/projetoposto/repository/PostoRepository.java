@@ -1,5 +1,8 @@
 package com.projetoposto.repository;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
@@ -12,5 +15,9 @@ import com.projetoposto.model.Posto;
 @RepositoryRestResource
 @CrossOrigin(origins = "http://localhost:4200")
 public interface PostoRepository extends JpaRepository<Posto, Long>{
-
+	 Posto findByUsername(String username);
+	 
+	 Posto save(Posto user);
+	 List<Posto> findAll();
+	 Optional<Posto> findById(Long id);
 }

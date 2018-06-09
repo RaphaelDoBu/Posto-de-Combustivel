@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Posto {
 	@Id

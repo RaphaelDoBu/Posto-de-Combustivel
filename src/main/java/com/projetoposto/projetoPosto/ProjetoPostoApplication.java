@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.Ordered;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.cors.CorsConfiguration;
@@ -14,9 +15,10 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 
-
 @EntityScan(basePackages = "com.projetoposto.model")
 @EnableJpaRepositories(basePackages = "com.projetoposto.repository")
+@ComponentScan(basePackages = {"com.projetoposto.controller", "com.projetoposto.service",
+		"com.projetoposto.config"})
 @SpringBootApplication(scanBasePackages = "com.projetoposto")
 public class ProjetoPostoApplication {
 
