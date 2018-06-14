@@ -57,12 +57,29 @@ public class PostoServiceImpl implements UserDetailsService, PostoService {
 
 	@Override
     public Posto save(Posto user) {
-    	
+		
+		System.out.println(user.getNome());
+		System.out.println(user.getEndereco());
+		System.out.println(user.getPassword());
+		System.out.println(user.getHorarioAberto());
+
+		
+		
 		Posto newUser = new Posto();
+		newUser.setNome(user.getNome());
+		newUser.setEndereco(user.getEndereco());
 	    newUser.setUsername(user.getUsername());
 	    newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
+	    newUser.setHorarioAberto(user.getHorarioAberto());
+	    newUser.setHorarioFechado(user.getHorarioFechado());
 		newUser.setCnpj(user.getCnpj());
-		newUser.setEndereco(newUser.getEndereco());
+		
+		
+		System.out.println("AQUI VAI NO NEWUSER");
+
+		System.out.println(newUser.getNome());
+		System.out.println(newUser.getPassword());
+
         return userDao.save(newUser);
 	}
 

@@ -34,6 +34,9 @@ public class AuthenticationController extends WebSecurityConfigurerAdapter{
     @RequestMapping(value = "/generate-token", method = RequestMethod.POST)
     public ResponseEntity<?> register(@RequestBody LoginUser loginUser) throws AuthenticationException {
     	
+    	System.out.println(loginUser.getUsername());
+    	System.out.println(loginUser.getPassword());
+    	
         final Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         loginUser.getUsername(),

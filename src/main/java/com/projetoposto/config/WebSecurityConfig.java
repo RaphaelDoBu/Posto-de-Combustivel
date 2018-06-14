@@ -54,11 +54,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     	
     	http.cors().and().csrf().disable().
         authorizeRequests()
-        .antMatchers("/token/*", "/signup").permitAll()
+        .antMatchers("/token/*", "/signup", "/h2-console/**").permitAll()
         .anyRequest().authenticated()
         .and()
         .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        http.headers().frameOptions().disable(); 
 		http
 		.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
 		
