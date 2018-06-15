@@ -1,4 +1,4 @@
-package com.projetoposto.controller;
+package com.projetoposto.authentication;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

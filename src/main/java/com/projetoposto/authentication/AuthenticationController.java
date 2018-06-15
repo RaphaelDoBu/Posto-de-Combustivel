@@ -1,4 +1,4 @@
-package com.projetoposto.controller;
+package com.projetoposto.authentication;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -11,9 +11,9 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import com.projetoposto.authentication.AuthToken;
+import com.projetoposto.authentication.LoginUser;
 import com.projetoposto.config.JwtTokenUtil;
-import com.projetoposto.model.AuthToken;
-import com.projetoposto.model.LoginUser;
 import com.projetoposto.posto.Posto;
 import com.projetoposto.posto.PostoService;
 

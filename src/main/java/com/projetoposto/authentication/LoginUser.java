@@ -1,4 +1,4 @@
-package com.projetoposto.model;
+package com.projetoposto.authentication;
 
 public class LoginUser {
 

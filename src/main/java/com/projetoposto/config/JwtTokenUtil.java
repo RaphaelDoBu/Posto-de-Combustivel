@@ -9,13 +9,13 @@ import org.springframework.stereotype.Component;
 
 import com.projetoposto.posto.Posto;
 
+import static com.projetoposto.authentication.Constants.ACCESS_TOKEN_VALIDITY_SECONDS;
+import static com.projetoposto.authentication.Constants.SIGNING_KEY;
+
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.function.Function;
-
-import static com.projetoposto.model.Constants.ACCESS_TOKEN_VALIDITY_SECONDS;
-import static com.projetoposto.model.Constants.SIGNING_KEY;
 
 @Component
 public class JwtTokenUtil implements Serializable {

@@ -15,11 +15,12 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import static com.projetoposto.authentication.Constants.HEADER_STRING;
+import static com.projetoposto.authentication.Constants.TOKEN_PREFIX;
+
 import java.io.IOException;
 import java.util.Arrays;
-
-import static com.projetoposto.model.Constants.HEADER_STRING;
-import static com.projetoposto.model.Constants.TOKEN_PREFIX;
 
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
