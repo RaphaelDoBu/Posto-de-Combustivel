@@ -1,9 +1,7 @@
-package com.projetoposto.service;
+package com.projetoposto.posto;
 
 import java.util.List;
 import java.util.Optional;
-
-import com.projetoposto.model.Posto;
 
 public interface PostoService {
 

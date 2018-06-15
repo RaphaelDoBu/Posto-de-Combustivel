@@ -1,4 +1,4 @@
-package com.projetoposto.model;
+package com.projetoposto.combustivel;
 
 import java.util.List;
 
@@ -14,6 +14,9 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+
+import com.projetoposto.avaliacao.Avaliacao;
+import com.projetoposto.posto.Posto;
 
 @Entity
 public class Combustivel {

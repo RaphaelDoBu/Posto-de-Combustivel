@@ -1,6 +1,5 @@
-package com.projetoposto.model;
+package com.projetoposto.avaliacao;
 
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,6 +12,8 @@ import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+
+import com.projetoposto.combustivel.Combustivel;
 
 @Entity
 public class Avaliacao {

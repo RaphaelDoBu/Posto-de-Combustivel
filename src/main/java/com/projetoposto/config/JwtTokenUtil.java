@@ -7,7 +7,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import com.projetoposto.model.Posto;
+import com.projetoposto.posto.Posto;
 
 import java.io.Serializable;
 import java.util.Arrays;

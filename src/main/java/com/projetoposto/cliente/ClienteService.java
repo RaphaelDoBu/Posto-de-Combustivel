@@ -1,10 +1,7 @@
-package com.projetoposto.service;
+package com.projetoposto.cliente;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.projetoposto.repository.ClienteRepository;
-import com.projetoposto.model.Cliente;
 
 @Service
 public class ClienteService {

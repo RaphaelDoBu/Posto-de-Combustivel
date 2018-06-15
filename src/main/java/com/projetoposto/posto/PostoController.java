@@ -1,17 +1,13 @@
-package com.projetoposto.controller;
+package com.projetoposto.posto;
 
 import java.util.List;
 import java.util.Optional;
 
-import org.h2.engine.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.projetoposto.repository.CombustivelRepository;
-import com.projetoposto.repository.PostoRepository;
-import com.projetoposto.service.PostoService;
-import com.projetoposto.model.Cliente;
-import com.projetoposto.model.Posto;
+import com.projetoposto.combustivel.CombustivelRepository;
+
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController

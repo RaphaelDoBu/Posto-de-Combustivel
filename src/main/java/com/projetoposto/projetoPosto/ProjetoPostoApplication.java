@@ -15,9 +15,14 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 
-@EntityScan(basePackages = "com.projetoposto.model")
-@EnableJpaRepositories(basePackages = "com.projetoposto.repository")
-@ComponentScan(basePackages = {"com.projetoposto.controller", "com.projetoposto.service",
+@EntityScan({"com.projetoposto.avaliacao", "com.projetoposto.cliente","com.projetoposto.combustivel",
+	"com.projetoposto.posto",
+	"com.projetoposto.config"})
+@EnableJpaRepositories({"com.projetoposto.avaliacao", "com.projetoposto.cliente","com.projetoposto.combustivel",
+	"com.projetoposto.posto",
+	"com.projetoposto.config"})
+@ComponentScan(basePackages = {"com.projetoposto.avaliacao", "com.projetoposto.cliente","com.projetoposto.combustivel",
+		"com.projetoposto.posto", "com.projetoposto.controller",
 		"com.projetoposto.config"})
 @SpringBootApplication(scanBasePackages = "com.projetoposto")
 public class ProjetoPostoApplication {

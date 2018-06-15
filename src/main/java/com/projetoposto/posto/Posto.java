@@ -1,11 +1,12 @@
-package com.projetoposto.model;
+package com.projetoposto.posto;
 
 import java.util.List;
 
 import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.projetoposto.cliente.Cliente;
+import com.projetoposto.combustivel.Combustivel;
 
 @Entity
 public class Posto {

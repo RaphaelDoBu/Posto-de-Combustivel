@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import com.projetoposto.config.JwtTokenUtil;
 import com.projetoposto.model.AuthToken;
 import com.projetoposto.model.LoginUser;
-import com.projetoposto.model.Posto;
-import com.projetoposto.service.PostoService;
+import com.projetoposto.posto.Posto;
+import com.projetoposto.posto.PostoService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController

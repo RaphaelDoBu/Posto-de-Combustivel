@@ -1,4 +1,4 @@
-package com.projetoposto.model;
+package com.projetoposto.cliente;
 
 import java.util.List;
 
@@ -9,7 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
+
+import com.projetoposto.posto.Posto;
 
 @Entity
 public class Cliente {

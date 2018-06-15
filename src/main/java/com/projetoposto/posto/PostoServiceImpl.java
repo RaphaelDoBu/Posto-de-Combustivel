@@ -1,4 +1,4 @@
-package com.projetoposto.service;
+package com.projetoposto.posto;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,9 +12,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import com.projetoposto.model.Posto;
-import com.projetoposto.repository.PostoRepository;
 
 @Service(value = "postoService")
 public class PostoServiceImpl implements UserDetailsService, PostoService {

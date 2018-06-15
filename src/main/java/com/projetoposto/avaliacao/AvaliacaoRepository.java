@@ -1,9 +1,7 @@
-package com.projetoposto.repository;
+package com.projetoposto.avaliacao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import com.projetoposto.model.Avaliacao;
 
 @Repository
 public interface AvaliacaoRepository extends JpaRepository<Avaliacao, Long>{
