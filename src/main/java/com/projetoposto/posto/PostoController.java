@@ -24,12 +24,12 @@ public class PostoController {
 	
     @RequestMapping(method=RequestMethod.GET, value="/postos")
 	public List<Posto> getPostos(){
-		return postoRepository.findAll();
+		return postoService.findAll();
 	}
 								
     @RequestMapping(method=RequestMethod.GET, value="/posto/{id}")
 	public Optional<Posto> getPosto(@PathVariable Long id){
-		return postoRepository.findById(id);
+		return postoService.findById(id);
 	}
 	
     @RequestMapping(method=RequestMethod.POST, value="/signup")
@@ -46,12 +46,12 @@ public class PostoController {
 	
     @RequestMapping(method=RequestMethod.DELETE, value="/posto/{id}")
 	public void	deletarPosto(Posto posto){
-		postoRepository.delete(posto);
+    	postoService.delete(posto);
 	}
     
     @RequestMapping(method=RequestMethod.PUT, value="/posto/{id}")
 	public Posto updateCliente(Posto posto){
-		return postoRepository.save(posto);
+		return postoService.save(posto);
 	}
 	
 

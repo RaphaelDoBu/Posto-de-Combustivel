@@ -1,20 +1,21 @@
 package com.projetoposto.cliente;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
-public class ClienteService {
+import com.projetoposto.posto.Posto;
+
+public interface ClienteService {
 	
-	@Autowired
-    private ClienteRepository clienteRepository ;
-	
-	
-//	public Cliente delete(Long id) {
-//		Cliente cliente = clienteRepository.findById(id);
-//	    if(cliente != null){
-//	    	clienteRepository.delete(cliente);
-//	    }
-//	    return user;
-//	}
+//	Cliente findByUsername(String username);
+	 
+	 Cliente save(Cliente user);
+	 List<Cliente> findAll();
+	 Optional<Cliente> findById(Long id);
+	 
+	 void delete(Cliente cliente);
+
 }

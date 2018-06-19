@@ -45,8 +45,6 @@ public class PostoServiceImpl implements UserDetailsService, PostoService {
 		userDao.delete(posto);
 	}
 
-	
-
 	@Override
 	public Optional<Posto> findById(Long id) {
 		return userDao.findById(id);

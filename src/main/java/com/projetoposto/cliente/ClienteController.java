@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.projetoposto.cliente.Cliente;
 import com.projetoposto.cliente.ClienteRepository;
 
+import ch.qos.logback.core.net.server.Client;
+
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
@@ -21,31 +23,34 @@ public class ClienteController {
 	
 	@Autowired
 	private ClienteRepository clienteRepository;
+	
+	@Autowired
+	private ClienteService clienteService;
 																																																																																																													
     @RequestMapping(method=RequestMethod.GET, value="/clientes")
 	public List<Cliente> getClientes(){
         System.out.println("Executando a lógica com Spring MVC");
-		return clienteRepository.findAll();
+		return clienteService.findAll();
 	}
 	
     @RequestMapping(method=RequestMethod.GET, value="/cliente/{id}")
 	public Optional<Cliente> getPosto(@PathVariable("id") Long id){
-		return clienteRepository.findById(id);
+		return clienteService.findById(id);
 	}
 	
     @RequestMapping(method=RequestMethod.POST, value="/cliente")
 	public Cliente cadastroPosto(@RequestBody Cliente cliente){
-		return clienteRepository.save(cliente);
+		return clienteService.save(cliente);
 	}
 	
     @RequestMapping(method=RequestMethod.DELETE, value="/cliente/{id}")
     public void	deletarPosto(Cliente cliente){
-		clienteRepository.delete(cliente);
+		clienteService.delete(cliente);
 	}
 	
     @RequestMapping(method=RequestMethod.PUT, value="/cliente/{id}")
 	public Cliente updateCliente(Cliente cliente){
-		return clienteRepository.save(cliente);
+		return clienteService.save(cliente);
 	}
 
 }

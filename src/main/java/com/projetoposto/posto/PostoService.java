@@ -10,4 +10,6 @@ public interface PostoService {
 	 Posto save(Posto user);
 	 List<Posto> findAll();
 	 Optional<Posto> findById(Long id);
+
+	void delete(Posto posto);
 }
