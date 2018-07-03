@@ -11,5 +11,6 @@ public interface PostoService {
 	 List<Posto> findAll();
 	 Optional<Posto> findById(Long id);
 
-	void delete(Posto posto);
+	 void delete(Posto posto);
+
 }

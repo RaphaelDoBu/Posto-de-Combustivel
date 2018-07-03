@@ -17,4 +17,5 @@ public interface PostoRepository extends JpaRepository<Posto, Long>{
 	 Posto save(Posto user);
 	 List<Posto> findAll();
 	 Optional<Posto> findById(Long id);
+		 
 }

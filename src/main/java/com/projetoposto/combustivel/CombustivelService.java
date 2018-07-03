@@ -9,9 +9,9 @@ import com.projetoposto.posto.Posto;
 public interface CombustivelService {
 
 	 
-	 Combustivel save(Combustivel combustivel);
-	 List<Combustivel> findAll();
-	 Optional<Combustivel> findById(Long id);
-	 void delete(Combustivel combustivel);
+	 Combustivel save(Long id, Combustivel combustivel);
+	 List<Combustivel> findAll(Long idPosto);
+	 Combustivel findById(Long idPosto, Long id);
+	 void delete(Long idPosto, Long id);
 
 }

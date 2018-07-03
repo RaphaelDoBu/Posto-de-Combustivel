@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.projetoposto.avaliacao.Avaliacao;
 import com.projetoposto.posto.Posto;
 
@@ -37,8 +38,7 @@ public class Combustivel {
 	private List<Avaliacao> avaliacoes;	
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "postos_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+	@JsonIgnore 
 	private Posto posto;
 	
 	public Combustivel(){
@@ -71,12 +71,12 @@ public class Combustivel {
 	public void setAumento(float aumento) {
 		this.aumento = aumento;
 	}
-//	public Posto getPosto() {
-//		return posto;
-//	}
-//	public void setPosto(Posto posto) {
-//		this.posto = posto;
-//	}	
+	public Posto getPosto() {
+		return posto;
+	}
+	public void setPosto(Posto posto) {
+		this.posto = posto;
+	}	
 	
 	
 	
