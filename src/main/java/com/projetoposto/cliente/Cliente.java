@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.projetoposto.posto.Posto;
+import com.projetoposto.avaliacao.Avaliacao;
 
 @Entity
 public class Cliente {
@@ -29,11 +29,10 @@ public class Cliente {
 	
 	@Column
 	private String password;
+
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+	private List<Avaliacao> listaDeAvaliacoes;
 	
-	@OneToMany(mappedBy = "listaDeClientes", cascade = CascadeType.ALL)
-	private List<Posto> listaDePostos;
-
-
 	public Cliente(){
 		
 	}
@@ -78,15 +77,14 @@ public class Cliente {
 		this.password = password;
 	}
 
-//
-//	public List<Posto> getListaDePostos() {
-//		return listaDePostos;
-//	}
-//
-//
-//	public void setListaDePostos(List<Posto> listaDePostos) {
-//		this.listaDePostos = listaDePostos;
-//	}
+	public List<Avaliacao> getListaDeAvaliacoes() {
+		return listaDeAvaliacoes;
+	}
+
+	public void setListaDeAvaliacoes(List<Avaliacao> listaDeAvaliacoes) {
+		this.listaDeAvaliacoes = listaDeAvaliacoes;
+	}
+	
 	
 	
 }

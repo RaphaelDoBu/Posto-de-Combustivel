@@ -1,10 +1,7 @@
 package com.projetoposto.combustivel;
 
 import java.util.List;
-import java.util.Optional;
 
-import com.projetoposto.cliente.Cliente;
-import com.projetoposto.posto.Posto;
 
 public interface CombustivelService {
 

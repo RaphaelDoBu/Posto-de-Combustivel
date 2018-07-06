@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.projetoposto.cliente.Cliente;
 import com.projetoposto.combustivel.Combustivel;
 
 @Entity
@@ -28,6 +30,10 @@ public class Avaliacao {
 	@JoinColumn(name = "combustivel_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
 	private Combustivel combustivel;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JsonIgnore 
+	private Cliente cliente;
 	
 	public Avaliacao(String comentario) {
 		this.comentario = comentario;
@@ -49,12 +55,21 @@ public class Avaliacao {
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
-//	public Combustivel getCombustivel() {
-//		return combustivel;
-//	}
-//	public void setCombustivel(Combustivel combustivel) {
-//		this.combustivel = combustivel;
-//	}
+	
+	public Combustivel getCombustivel() {
+		return combustivel;
+	}
+	public void setCombustivel(Combustivel combustivel) {
+		this.combustivel = combustivel;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
 	
 	
 

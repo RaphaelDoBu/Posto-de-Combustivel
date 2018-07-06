@@ -130,21 +130,16 @@ public class Posto {
 	public void setHorarioFechado(String horarioFechado) {
 		this.horarioFechado = horarioFechado;
 	}
-	
-	
-	
-//
-//	public List<Posto> getListaDePostos() {
-//		return listaDePostos;
-//	}
-//	public void setListaDePostos(List<Posto> listaDePostos) {
-//		this.listaDePostos = listaDePostos;
-//	}
-//
-//	public List<Combustivel> getListaDeCombustiveis() {
-//		return listaDeCombustiveis;
-//	}
-//	public void setListaDeCombustiveis(List<Combustivel> listaDeCombustiveis) {
-//		this.listaDeCombustiveis = listaDeCombustiveis;
-//	}
+	public Combustivel buscarCombustivel(Combustivel combustivel, List<Combustivel> lista){
+		Combustivel combustivelEncontrado = null;
+		for (Combustivel c: lista){
+			if (c.getNome().equals(combustivel.getNome())){
+				combustivelEncontrado = c;
+			}
+		}
+		return combustivelEncontrado;
+		
+	}
+
+
 }

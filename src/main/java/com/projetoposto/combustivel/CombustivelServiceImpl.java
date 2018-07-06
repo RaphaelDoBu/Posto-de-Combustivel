@@ -2,12 +2,10 @@ package com.projetoposto.combustivel;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.projetoposto.cliente.Cliente;
 import com.projetoposto.posto.Posto;
 import com.projetoposto.posto.PostoRepository;
 
@@ -30,15 +28,17 @@ public class CombustivelServiceImpl implements CombustivelService{
 		Combustivel novoCombustivel = new Combustivel();
 		novoCombustivel.setNome(combustivel.getNome());
 		novoCombustivel.setPreco(combustivel.getPreco());
+		
 		System.out.println("nome do posto " + posto.getUsername());
-    	posto.getListaDeCombustiveis().add(novoCombustivel);
+    	
+		posto.getListaDeCombustiveis().add(novoCombustivel);
 
 		novoCombustivel.setPosto(posto);
 		
 		
     	Combustivel combustivelSalvo = combustivelRepository.save(novoCombustivel);
     	
-		return novoCombustivel;
+		return combustivelSalvo;
 
 	}
 
@@ -52,19 +52,22 @@ public class CombustivelServiceImpl implements CombustivelService{
 
 	@Override
 	public Combustivel findById(Long idPosto, Long id) {
+		Posto posto = postoRepository.findById(idPosto).get();
 		Combustivel combustivel = combustivelRepository.findById(id).get();
 		
-		return combustivel;
+		Combustivel combustivelEncontrado = posto.buscarCombustivel(combustivel, posto.getListaDeCombustiveis());
+		
+		return combustivelEncontrado;
 
 	}
 
 	@Override
-	public void delete(Long idPosto, Long id) {
+	public void delete(Long idPosto, Long idCombustivel) {
 		List<Combustivel> combustiveis = findAll(idPosto);
-		Combustivel c= combustivelRepository.findById(id).get();
+		Combustivel c= combustivelRepository.findById(idCombustivel).get();
 		
 		combustiveis.remove(c);
-		combustivelRepository.deleteById(id);
+		combustivelRepository.delete(c);
 		
 	}
 

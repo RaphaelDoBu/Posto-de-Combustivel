@@ -6,10 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.projetoposto.combustivel.Combustivel;
-import com.projetoposto.combustivel.CombustivelRepository;
-import com.projetoposto.combustivel.CombustivelService;
-
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
@@ -17,9 +13,7 @@ public class PostoController {
 	
 	@Autowired
 	private PostoService postoService;
-	
-	@Autowired
-	private CombustivelService combustivelService;
+
 	
     @RequestMapping(method=RequestMethod.GET, value="/postos")
 	public List<Posto> getPostos(){

@@ -7,7 +7,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.projetoposto.posto.Posto;
 
 @Service(value = "clienteService")
 public class ClienteServiceImpl implements ClienteService{

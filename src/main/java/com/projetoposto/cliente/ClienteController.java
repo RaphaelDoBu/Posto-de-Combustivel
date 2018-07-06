@@ -12,17 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.projetoposto.cliente.Cliente;
-import com.projetoposto.cliente.ClienteRepository;
-
-import ch.qos.logback.core.net.server.Client;
 
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 public class ClienteController {
 	
-	@Autowired
-	private ClienteRepository clienteRepository;
 	
 	@Autowired
 	private ClienteService clienteService;
