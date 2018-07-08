@@ -31,14 +31,6 @@ public class PostoController {
 	
     @RequestMapping(method=RequestMethod.POST, value="/signup")
 	public Posto cadastroPosto(@RequestBody Posto posto){
-    	System.out.println("POSTO");
-    	System.out.println(posto.getNome());
-    	System.out.println(posto.getPassword());
-    	System.out.println(posto.getCnpj());
-    	System.out.println(posto.getUsername());
-    	System.out.println("Saiu do controller");
-
-    	
 		return userSerice.save(posto);
 	}
 	
@@ -47,9 +39,9 @@ public class PostoController {
     	postoService.delete(posto);
 	}
     
-//    @RequestMapping(method=RequestMethod.PUT, value="/posto/{id}")
-//	public Posto updateCliente(Posto posto){
-//		return postoService.save(posto);
-//	}
+    @RequestMapping(method=RequestMethod.PUT, value="/posto/{id}")
+	public Posto updateCliente(Posto posto){
+		return userSerice.save(posto);
+	}
 
 }

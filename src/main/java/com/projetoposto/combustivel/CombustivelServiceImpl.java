@@ -21,20 +21,15 @@ public class CombustivelServiceImpl implements CombustivelService{
 
 	@Override
 	public Combustivel save(Long idPosto,Combustivel combustivel) {
-		System.out.println("Entrou no service" + combustivel.getNome());
-		System.out.println("id do posto " + idPosto);
 
 		Posto posto = postoRepository.findById(idPosto).get();
 		Combustivel novoCombustivel = new Combustivel();
 		novoCombustivel.setNome(combustivel.getNome());
 		novoCombustivel.setPreco(combustivel.getPreco());
-		
-		System.out.println("nome do posto " + posto.getUsername());
-    	
+		    	
 		posto.getListaDeCombustiveis().add(novoCombustivel);
 
 		novoCombustivel.setPosto(posto);
-		
 		
     	Combustivel combustivelSalvo = combustivelRepository.save(novoCombustivel);
     	

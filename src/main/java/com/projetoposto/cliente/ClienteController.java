@@ -27,7 +27,6 @@ public class ClienteController {
 																																																																																																													
     @RequestMapping(method=RequestMethod.GET, value="/clientes")
 	public List<Cliente> getClientes(){
-        System.out.println("Executando a lógica com Spring MVC");
 		return clienteService.findAll();
 	}
 	
@@ -38,11 +37,6 @@ public class ClienteController {
 	
     @RequestMapping(method=RequestMethod.POST, value="/cliente")
 	public Cliente cadastroPosto(@RequestBody Cliente cliente){
-    	System.out.println("CLIENTE");
-    	System.out.println(cliente.getNome());
-    	System.out.println(cliente.getUsername());
-    	System.out.println(cliente.getPassword());
-    	System.out.println("Saiu do controller");
 		return userSerice.save(cliente);
 	}
 	
@@ -51,9 +45,9 @@ public class ClienteController {
 		clienteService.delete(cliente);
 	}
 	
-//    @RequestMapping(method=RequestMethod.PUT, value="/cliente/{id}")
-//	public Cliente updateCliente(Cliente cliente){
-//		return clienteService.save(cliente);
-//	}
+    @RequestMapping(method=RequestMethod.PUT, value="/cliente/{id}")
+	public Cliente updateCliente(Cliente cliente){
+		return userSerice.save(cliente);
+	}
 
 }

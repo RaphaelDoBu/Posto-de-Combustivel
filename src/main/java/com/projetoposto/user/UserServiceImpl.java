@@ -43,25 +43,15 @@ public class UserServiceImpl implements UserDetailsService, UserService{
 		
 	public Cliente save(Cliente user){
 		Cliente newUser = new Cliente();
-		System.out.println("ENTROU NO SERVICE como cliente");
-
 		newUser.setNome(user.getNome());
 		newUser.setEmail(user.getEmail());
 		newUser.setUsername(user.getUsername());
 		newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
-		    
-		System.out.println("AQUI VAI NO NEWUSER CLIENTE");
-
-		System.out.println(newUser.getNome());
-		System.out.println(newUser.getPassword());
 		
 		return clienteRepository.save(newUser);
 	}
 		
 	public Posto save(Posto user){
-
-	    System.out.println("ENTROU NO SERVICE como posto");
-		
 		Posto newUser = new Posto();
 		newUser.setNome(user.getNome());
 		newUser.setEndereco(user.getEndereco());
@@ -70,12 +60,7 @@ public class UserServiceImpl implements UserDetailsService, UserService{
 		newUser.setHorarioAberto(user.getHorarioAberto());
 		newUser.setHorarioFechado(user.getHorarioFechado());
 		newUser.setCnpj(user.getCnpj());
-			
-			
-		System.out.println("AQUI VAI NO NEWUSER POSTO");
-
-		System.out.println(newUser.getNome());
-		System.out.println(newUser.getPassword());
+	
 		return postoRepository.save(newUser);
 	}
 		
