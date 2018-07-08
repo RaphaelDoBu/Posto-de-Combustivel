@@ -7,7 +7,6 @@ public interface PostoService {
 
 	 Posto findByUsername(String username);
 	 
-	 Posto save(Posto user);
 	 List<Posto> findAll();
 	 Optional<Posto> findById(Long id);
 

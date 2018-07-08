@@ -11,9 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.projetoposto.avaliacao.Avaliacao;
+import com.projetoposto.user.User;
 
 @Entity
-public class Cliente {
+public class Cliente extends User{
 	
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
@@ -23,12 +24,6 @@ public class Cliente {
 	
 	@Column
 	private String email;
-	
-	@Column
-	private String username;
-	
-	@Column
-	private String password;
 
 	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
 	private List<Avaliacao> listaDeAvaliacoes;
@@ -36,15 +31,6 @@ public class Cliente {
 	public Cliente(){
 		
 	}
-	
-
-	public Cliente(String nome, String username, String password) {
-		super();
-		this.nome = nome;
-		this.username = username;
-		this.password = password;
-	}
-
 
 	public Long getId() {
 		return id;
@@ -63,18 +49,6 @@ public class Cliente {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public List<Avaliacao> getListaDeAvaliacoes() {

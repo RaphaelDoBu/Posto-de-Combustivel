@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.projetoposto.cliente.Cliente;
+import com.projetoposto.user.UserService;
 
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
@@ -21,6 +22,8 @@ public class ClienteController {
 	
 	@Autowired
 	private ClienteService clienteService;
+	@Autowired
+	private UserService userSerice;
 																																																																																																													
     @RequestMapping(method=RequestMethod.GET, value="/clientes")
 	public List<Cliente> getClientes(){
@@ -35,7 +38,12 @@ public class ClienteController {
 	
     @RequestMapping(method=RequestMethod.POST, value="/cliente")
 	public Cliente cadastroPosto(@RequestBody Cliente cliente){
-		return clienteService.save(cliente);
+    	System.out.println("CLIENTE");
+    	System.out.println(cliente.getNome());
+    	System.out.println(cliente.getUsername());
+    	System.out.println(cliente.getPassword());
+    	System.out.println("Saiu do controller");
+		return userSerice.save(cliente);
 	}
 	
     @RequestMapping(method=RequestMethod.DELETE, value="/cliente/{id}")
@@ -43,9 +51,9 @@ public class ClienteController {
 		clienteService.delete(cliente);
 	}
 	
-    @RequestMapping(method=RequestMethod.PUT, value="/cliente/{id}")
-	public Cliente updateCliente(Cliente cliente){
-		return clienteService.save(cliente);
-	}
+//    @RequestMapping(method=RequestMethod.PUT, value="/cliente/{id}")
+//	public Cliente updateCliente(Cliente cliente){
+//		return clienteService.save(cliente);
+//	}
 
 }

@@ -6,6 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.projetoposto.user.UserService;
+
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
@@ -14,6 +16,8 @@ public class PostoController {
 	@Autowired
 	private PostoService postoService;
 
+	@Autowired
+	private UserService userSerice;
 	
     @RequestMapping(method=RequestMethod.GET, value="/postos")
 	public List<Posto> getPostos(){
@@ -27,6 +31,7 @@ public class PostoController {
 	
     @RequestMapping(method=RequestMethod.POST, value="/signup")
 	public Posto cadastroPosto(@RequestBody Posto posto){
+    	System.out.println("POSTO");
     	System.out.println(posto.getNome());
     	System.out.println(posto.getPassword());
     	System.out.println(posto.getCnpj());
@@ -34,7 +39,7 @@ public class PostoController {
     	System.out.println("Saiu do controller");
 
     	
-		return postoService.save(posto);
+		return userSerice.save(posto);
 	}
 	
     @RequestMapping(method=RequestMethod.DELETE, value="/posto/{id}")
@@ -42,9 +47,9 @@ public class PostoController {
     	postoService.delete(posto);
 	}
     
-    @RequestMapping(method=RequestMethod.PUT, value="/posto/{id}")
-	public Posto updateCliente(Posto posto){
-		return postoService.save(posto);
-	}
+//    @RequestMapping(method=RequestMethod.PUT, value="/posto/{id}")
+//	public Posto updateCliente(Posto posto){
+//		return postoService.save(posto);
+//	}
 
 }

@@ -7,9 +7,10 @@ import javax.persistence.GeneratedValue;
 
 import com.projetoposto.cliente.Cliente;
 import com.projetoposto.combustivel.Combustivel;
+import com.projetoposto.user.User;
 
 @Entity
-public class Posto {
+public class Posto extends User{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -19,12 +20,6 @@ public class Posto {
 	
 	@Column
 	private String endereco;
-	
-	@Column
-	private String username;
-	
-	@Column
-	private String password;
 	
 	@Column
 	private String horarioAberto;
@@ -51,14 +46,6 @@ public class Posto {
 	public Posto(){
 		
 	}
-	
-	public Posto( String nome, String endereco, String username, String password, String cnpj) {
-		this.nome = nome;
-		this.endereco = endereco;
-		this.username = username;
-		this.password = password;
-		this.cnpj = cnpj;
-	}
 
 	public Long getId() {
 		return id;
@@ -77,18 +64,6 @@ public class Posto {
 	}
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public String getCnpj() {

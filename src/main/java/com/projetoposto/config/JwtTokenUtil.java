@@ -7,7 +7,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import com.projetoposto.posto.Posto;
+import com.projetoposto.user.User;
 
 import static com.projetoposto.authentication.Constants.ACCESS_TOKEN_VALIDITY_SECONDS;
 import static com.projetoposto.authentication.Constants.SIGNING_KEY;
@@ -50,7 +50,7 @@ public class JwtTokenUtil implements Serializable {
         return expiration.before(new Date());
     }
 
-    public String generateToken(Posto user) {
+    public String generateToken(User user) {
         return doGenerateToken(user.getUsername());
     }
 

@@ -26,7 +26,7 @@ import javax.annotation.Resource;
 @Order(1)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Resource(name = "postoService")
+    @Resource(name = "userService")
     private UserDetailsService userDetailsService;
 
     @Autowired
@@ -54,7 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     	
     	http.cors().and().csrf().disable().
         authorizeRequests()
-        .antMatchers("/token/*", "/signup", "/h2-console/**").permitAll()
+        .antMatchers("/token/*", "/signup", "/cliente" ,"/h2-console/**").permitAll()
         .anyRequest().authenticated()
         .and()
         .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()

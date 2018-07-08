@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import com.projetoposto.authentication.AuthToken;
 import com.projetoposto.authentication.LoginUser;
 import com.projetoposto.config.JwtTokenUtil;
-import com.projetoposto.posto.Posto;
-import com.projetoposto.posto.PostoService;
+import com.projetoposto.user.User;
+import com.projetoposto.user.UserService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -29,7 +29,7 @@ public class AuthenticationController extends WebSecurityConfigurerAdapter{
     private JwtTokenUtil jwtTokenUtil;
 
     @Autowired(required=true)
-    private PostoService userService;
+    private UserService userService;
 
     @RequestMapping(value = "/generate-token", method = RequestMethod.POST)
     public ResponseEntity<?> register(@RequestBody LoginUser loginUser) throws AuthenticationException {
@@ -44,7 +44,7 @@ public class AuthenticationController extends WebSecurityConfigurerAdapter{
                 )
         );
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        final Posto user = userService.findByUsername(loginUser.getUsername());
+        final User user = userService.findByUsername(loginUser.getUsername());
         final String token = jwtTokenUtil.generateToken(user);
         return ResponseEntity.ok(new AuthToken(token));
     }
