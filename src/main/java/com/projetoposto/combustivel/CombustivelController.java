@@ -23,24 +23,25 @@ public class CombustivelController {
 		return combustivelService.findAll(idPosto);
 	}
 	
-    @RequestMapping(method=RequestMethod.GET, value="/combustivel/{id}")
-	public Combustivel getCombustivel(@PathVariable(value="id") Long idPosto, @PathVariable("id") Long id){
+    @RequestMapping(method=RequestMethod.GET, value="posto/{idPosto}/combustivel/{id}")
+	public Combustivel getCombustivel(@PathVariable(value="idPosto") Long idPosto, @PathVariable("id") Long id){
 		return combustivelService.findById(idPosto, id);
 	}
 	
-    @RequestMapping(method=RequestMethod.POST, value="posto/{id}/combustivel")
-	public Combustivel cadastroCombustivel(@PathVariable(value="id") Long idPosto, @RequestBody Combustivel combustivel){
+    @RequestMapping(method=RequestMethod.POST, value="posto/{idPosto}/combustivel")
+	public Combustivel cadastroCombustivel(@PathVariable(value="idPosto") Long idPosto, @RequestBody Combustivel combustivel){
     	return combustivelService.save(idPosto, combustivel);
 	}
 	
-    @RequestMapping(method=RequestMethod.DELETE, value="/combustivel/{id}")
-    public void	deletarCombustivel(@PathVariable(value="id") Long idPosto, @PathVariable("id") Long id){
+    @RequestMapping(method=RequestMethod.DELETE, value="posto/{idPosto}/combustivel/{id}")
+    public void	deletarCombustivel(@PathVariable(value="idPosto") Long idPosto, @PathVariable("id") Long id){
     	combustivelService.delete(idPosto, id);
 	}
 	
-    @RequestMapping(method=RequestMethod.PUT, value="/combustivel/{id}")
-	public Combustivel updateCombustivel(@PathVariable(value="id") Long idPosto,  @RequestBody Combustivel combustivel){
-		return combustivelService.save(idPosto,combustivel);
+    @RequestMapping(method=RequestMethod.PUT, value="posto/{idPosto}/combustivel/{id}")
+	public Combustivel updateCombustivel(@PathVariable(value="idPosto") Long idPosto, @PathVariable(value="id") Long idCombustivel,
+											@RequestBody Combustivel combustivel){
+		return combustivelService.update(idPosto,idCombustivel, combustivel);
 	}
 	
 }

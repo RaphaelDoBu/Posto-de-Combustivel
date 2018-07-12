@@ -65,6 +65,16 @@ public class CombustivelServiceImpl implements CombustivelService{
 		combustivelRepository.delete(c);
 		
 	}
-
+	
+	@Override
+	public Combustivel update(Long idPosto, Long idCombustivel, Combustivel combustivel) {
+		Combustivel c= findById(idPosto, idCombustivel);
+		
+		c.setNome(combustivel.getNome());
+		c.setPreco(combustivel.getPreco());
+		c.setAumento(combustivel.getAumento());
+		
+		return c;
+	}
 
 }

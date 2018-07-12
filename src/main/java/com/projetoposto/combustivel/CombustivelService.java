@@ -10,5 +10,5 @@ public interface CombustivelService {
 	 List<Combustivel> findAll(Long idPosto);
 	 Combustivel findById(Long idPosto, Long id);
 	 void delete(Long idPosto, Long id);
-
+	 Combustivel update(Long idPosto, Long id, Combustivel combustivel);
 }
