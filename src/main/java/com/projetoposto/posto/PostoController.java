@@ -17,7 +17,7 @@ public class PostoController {
 	private PostoService postoService;
 
 	@Autowired
-	private UserService userSerice;
+	private UserService userService;
 	
     @RequestMapping(method=RequestMethod.GET, value="/postos")
 	public List<Posto> getPostos(){
@@ -25,13 +25,13 @@ public class PostoController {
 	}
 								
     @RequestMapping(method=RequestMethod.GET, value="/posto/{id}")
-	public Optional<Posto> getPosto(@PathVariable Long id){
+	public Posto getPosto(@PathVariable Long id){
 		return postoService.findById(id);
 	}
 	
     @RequestMapping(method=RequestMethod.POST, value="/signup")
 	public Posto cadastroPosto(@RequestBody Posto posto){
-		return userSerice.save(posto);
+		return userService.save(posto);
 	}
 	
     @RequestMapping(method=RequestMethod.DELETE, value="/posto/{id}")
@@ -41,7 +41,7 @@ public class PostoController {
     
     @RequestMapping(method=RequestMethod.PUT, value="/posto/{id}")
 	public Posto updateCliente(Posto posto){
-		return userSerice.save(posto);
+		return userService.save(posto);
 	}
 
 }

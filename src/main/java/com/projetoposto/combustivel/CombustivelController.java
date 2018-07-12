@@ -20,31 +20,27 @@ public class CombustivelController {
 																																																																																																													
     @RequestMapping(method=RequestMethod.GET, value="posto/{id}/combustiveis")
 	public List<Combustivel> getCombustiveis(@PathVariable(value="id") Long idPosto){
-    	System.out.println("ID DO POSTO:" + idPosto);
-        System.out.println("Executando a lógica com Spring MVC");
 		return combustivelService.findAll(idPosto);
 	}
 	
-//    @RequestMapping(method=RequestMethod.GET, value="/combustivel/{id}")
-//	public Combustivel getCombustivel(@RequestParam("idPosto") Long idPosto, @PathVariable("id") Long id){
-//		return combustivelService.findById(idPosto, id);
-//	}
+    @RequestMapping(method=RequestMethod.GET, value="/combustivel/{id}")
+	public Combustivel getCombustivel(@PathVariable(value="id") Long idPosto, @PathVariable("id") Long id){
+		return combustivelService.findById(idPosto, id);
+	}
 	
     @RequestMapping(method=RequestMethod.POST, value="posto/{id}/combustivel")
 	public Combustivel cadastroCombustivel(@PathVariable(value="id") Long idPosto, @RequestBody Combustivel combustivel){
-    	System.out.println("ID DO POSTO:" + idPosto);
-    	System.out.println(combustivel.getNome());
     	return combustivelService.save(idPosto, combustivel);
 	}
 	
-//    @RequestMapping(method=RequestMethod.DELETE, value="/combustivel/{id}")
-//    public void	deletarCombustivel(@RequestParam("idPosto") Long idPosto, @PathVariable("id") Long id){
-//    	combustivelService.delete(idPosto, id);
-//	}
-//	
-//    @RequestMapping(method=RequestMethod.PUT, value="/combustivel/{id}")
-//	public Combustivel updateCombustivel(@RequestParam("idPosto") Long idPosto,  @RequestBody Combustivel combustivel){
-//		return combustivelService.save(idPosto,combustivel);
-//	}
+    @RequestMapping(method=RequestMethod.DELETE, value="/combustivel/{id}")
+    public void	deletarCombustivel(@PathVariable(value="id") Long idPosto, @PathVariable("id") Long id){
+    	combustivelService.delete(idPosto, id);
+	}
+	
+    @RequestMapping(method=RequestMethod.PUT, value="/combustivel/{id}")
+	public Combustivel updateCombustivel(@PathVariable(value="id") Long idPosto,  @RequestBody Combustivel combustivel){
+		return combustivelService.save(idPosto,combustivel);
+	}
 	
 }

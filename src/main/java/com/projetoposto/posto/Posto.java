@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.projetoposto.cliente.Cliente;
 import com.projetoposto.combustivel.Combustivel;
 import com.projetoposto.user.User;
@@ -30,6 +31,7 @@ public class Posto extends User{
 	@Column
 	private String cnpj;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "posto", cascade = CascadeType.ALL)
 	private List<Combustivel> listaDeCombustiveis;
 	

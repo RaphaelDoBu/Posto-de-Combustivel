@@ -49,6 +49,24 @@ public class AuthenticationController extends WebSecurityConfigurerAdapter{
         return ResponseEntity.ok(new AuthToken(token));
     }
     
+    @RequestMapping(value = "/usuario-autenticado", method = RequestMethod.POST)
+    public User buscaAutenticado(@RequestBody LoginUser loginUser) throws AuthenticationException {
+    	
+    	System.out.println(loginUser.getUsername());
+    	System.out.println(loginUser.getPassword());
+    	
+        final Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        loginUser.getUsername(),
+                        loginUser.getPassword()
+                )
+        );
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        final User user = userService.findByUsername(loginUser.getUsername());
+        return user;
+    }
+    
+    
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {

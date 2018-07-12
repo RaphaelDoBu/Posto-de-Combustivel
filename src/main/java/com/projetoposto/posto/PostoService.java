@@ -8,7 +8,7 @@ public interface PostoService {
 	 Posto findByUsername(String username);
 	 
 	 List<Posto> findAll();
-	 Optional<Posto> findById(Long id);
+	 Posto findById(Long id);
 
 	 void delete(Posto posto);
 

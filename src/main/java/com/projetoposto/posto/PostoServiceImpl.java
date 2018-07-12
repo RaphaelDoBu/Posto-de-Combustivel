@@ -11,28 +11,28 @@ import org.springframework.stereotype.Service;
 public class PostoServiceImpl implements PostoService {
 	
     @Autowired
-	private PostoRepository userDao;
+	private PostoRepository postoRepository;
 
 	public List<Posto> findAll() {
 		List<Posto> list = new ArrayList<>();
-		userDao.findAll().iterator().forEachRemaining(list::add);
+		postoRepository.findAll().iterator().forEachRemaining(list::add);
 		return list;
 	}
 
 
 	public void delete(Posto posto) {
-		userDao.delete(posto);
+		postoRepository.delete(posto);
 	}
 
 	@Override
-	public Optional<Posto> findById(Long id) {
-		return userDao.findById(id);
+	public Posto findById(Long id) {
+		return postoRepository.findById(id).get();
 	}
 
 
 	@Override
 	public Posto findByUsername(String username) {
-		return userDao.findByUsername(username);
+		return postoRepository.findByUsername(username);
 	}
 
 }
