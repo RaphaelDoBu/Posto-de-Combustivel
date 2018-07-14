@@ -17,6 +17,8 @@ import com.projetoposto.config.JwtTokenUtil;
 import com.projetoposto.user.User;
 import com.projetoposto.user.UserService;
 
+import io.swagger.annotations.ApiOperation;
+
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/token")
@@ -32,6 +34,7 @@ public class AuthenticationController extends WebSecurityConfigurerAdapter{
     private UserService userService;
 
     @RequestMapping(value = "/generate-token", method = RequestMethod.POST)
+    @ApiOperation(value = "Geração do token para autenticação de usuário(cliente ou posto)")
     public ResponseEntity<?> register(@RequestBody LoginUser loginUser) throws AuthenticationException {
     	
     	System.out.println(loginUser.getUsername());
@@ -50,6 +53,7 @@ public class AuthenticationController extends WebSecurityConfigurerAdapter{
     }
     
     @RequestMapping(value = "/usuario-autenticado", method = RequestMethod.POST)
+    @ApiOperation(value = "Retorno do usuário(cliente ou posto) autenticado no momento")
     public User buscaAutenticado(@RequestBody LoginUser loginUser) throws AuthenticationException {
     	
     	System.out.println(loginUser.getUsername());
