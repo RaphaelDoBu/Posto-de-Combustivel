@@ -1,15 +1,17 @@
 package com.projetoposto.avaliacao;
 
-import java.util.List;
-
-
+import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.projetoposto.posto.Posto;
 
 import io.swagger.annotations.ApiOperation;
 
@@ -23,16 +25,22 @@ public class AvaliacaoController {
 	
 	@RequestMapping(method=RequestMethod.GET, value="/posto/{idPosto}/combustivel/{idCombustivel}/avaliacoes")
     @ApiOperation(value = "Listagem de todas as avaliações")
-	public List<Avaliacao> getAvaliacoes(@PathVariable(value="idPosto") Long idPosto, 
+	public ResponseEntity<Collection<Avaliacao>> getAvaliacoes(@PathVariable(value="idPosto") Long idPosto, 
 												@PathVariable(value="idCombustivel") Long idCombustivel){
-		return avaliacaoService.findAll(idPosto, idCombustivel);
+	   	Collection<Avaliacao> data = this.avaliacaoService.findAll(idPosto, idCombustivel);
+    	return new ResponseEntity<>(data, HttpStatus.OK);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="cliente/{idCliente}/posto/{idPosto}/combustivel/{idCombustivel}/avaliacao")
     @ApiOperation(value = "Cadastro de uma avaliação por combustivel de um posto feito pelo cliente")
-	public Avaliacao cadastroAvalicaoCombustivel(@PathVariable(value="idPosto") Long idPosto, @PathVariable(value="idCliente") Long idCliente, 
+	public ResponseEntity<Avaliacao> cadastroAvalicaoCombustivel(@PathVariable(value="idPosto") Long idPosto, @PathVariable(value="idCliente") Long idCliente, 
 			@PathVariable(value="idCombustivel") Long idCombustivel, @RequestBody Avaliacao avaliacao){
-    	return avaliacaoService.save(idPosto, idCombustivel, idCliente, avaliacao);
+		if (avaliacao.getComentario() != null){
+	    	Avaliacao data = this.avaliacaoService.save(idPosto, idCombustivel, idCliente, avaliacao);
+			return new ResponseEntity<>(data, HttpStatus.OK);
+    	}else{
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    	}
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="cliente/{idCliente}/posto/{idPosto}/combustivel/{idCombustivel}/avaliacao/{idAvaliacao}")

@@ -1,14 +1,20 @@
 package com.projetoposto.combustivel;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.projetoposto.avaliacao.Avaliacao;
+import com.projetoposto.posto.Posto;
 
 import io.swagger.annotations.ApiOperation;
 
@@ -22,20 +28,27 @@ public class CombustivelController {
 																																																																																																													
     @RequestMapping(method=RequestMethod.GET, value="posto/{id}/combustiveis")
     @ApiOperation(value = "Listagem de todos os combustiveis de um posto")
-    public List<Combustivel> getCombustiveis(@PathVariable(value="id") Long idPosto){
-		return combustivelService.findAll(idPosto);
+    public ResponseEntity<Collection<Combustivel>> getCombustiveis(@PathVariable(value="id") Long idPosto){
+    	Collection<Combustivel> data = this.combustivelService.findAll(idPosto);
+    	return new ResponseEntity<>(data, HttpStatus.OK);
 	}
 	
     @RequestMapping(method=RequestMethod.GET, value="posto/{idPosto}/combustivel/{id}")
     @ApiOperation(value = "Exibir um combustivel de um posto")
-    public Combustivel getCombustivel(@PathVariable(value="idPosto") Long idPosto, @PathVariable("id") Long id){
-		return combustivelService.findById(idPosto, id);
+    public ResponseEntity<Combustivel> getCombustivel(@PathVariable(value="idPosto") Long idPosto, @PathVariable("id") Long id){
+    	Combustivel data = this.combustivelService.findById(idPosto, id);
+		return new ResponseEntity<>(data, HttpStatus.OK);
 	}
 	
     @RequestMapping(method=RequestMethod.POST, value="posto/{idPosto}/combustivel")
     @ApiOperation(value = "Cadastro de um combustivel de um posto feito pelo dono do posto")
-    public Combustivel cadastroCombustivel(@PathVariable(value="idPosto") Long idPosto, @RequestBody Combustivel combustivel){
-    	return combustivelService.save(idPosto, combustivel);
+    public ResponseEntity<Combustivel> cadastroCombustivel(@PathVariable(value="idPosto") Long idPosto, @RequestBody Combustivel combustivel){
+    	if (combustivel.getNome() != null){
+	    	Combustivel data = this.combustivelService.save(idPosto, combustivel);
+			return new ResponseEntity<>(data, HttpStatus.OK);
+    	}else{
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    	}
 	}
 	
     @RequestMapping(method=RequestMethod.DELETE, value="posto/{idPosto}/combustivel/{id}")
@@ -46,9 +59,10 @@ public class CombustivelController {
 	
     @RequestMapping(method=RequestMethod.PUT, value="posto/{idPosto}/combustivel/{id}")
     @ApiOperation(value = "Atualização dos dados de um combustivel de um posto feito pelo dono do posto")
-    public Combustivel updateCombustivel(@PathVariable(value="idPosto") Long idPosto, @PathVariable(value="id") Long idCombustivel,
+    public ResponseEntity<Combustivel> updateCombustivel(@PathVariable(value="idPosto") Long idPosto, @PathVariable(value="id") Long idCombustivel,
 											@RequestBody Combustivel combustivel){
-		return combustivelService.update(idPosto,idCombustivel, combustivel);
+    	Combustivel data = this.combustivelService.save(idPosto, combustivel);
+		return new ResponseEntity<>(data, HttpStatus.OK);
 	}
 	
 }
