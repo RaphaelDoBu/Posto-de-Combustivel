@@ -17,6 +17,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 import javax.annotation.Resource;
 
@@ -54,7 +55,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     	
     	http.cors().and().csrf().disable().
         authorizeRequests()
-        .antMatchers("/token/*", "/signup", "/cliente" ,"/h2-console/**").permitAll()
+        .antMatchers("/token/*", "/signup", "/cliente" ,"/h2-console/**", "/swagger-resources/**",
+        		"/webjars/**", "/swagger-ui.html/**", "/v2/api-docs").permitAll()
         .anyRequest().authenticated()
         .and()
         .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
@@ -62,36 +64,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.headers().frameOptions().disable(); 
 		http
 		.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
-		
-//        http.csrf().disable().
-//                authorizeRequests()
-//                .antMatchers("/token/*", "/signup").permitAll()
-//                .anyRequest().authenticated()
-//                .and()
-//                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-//        http
-//                .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
-
-//        http
-//        .cors()
-//            .and()
-//        .csrf()
-//            .disable()
-//        .exceptionHandling()
-//            .authenticationEntryPoint(unauthorizedHandler)
-//            .and()
-//        .sessionManagement()
-//            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-//            .and()
-//        .authorizeRequests()
-//            .antMatchers(HttpMethod.POST, "/token/**")
-//                .permitAll()
-//            .antMatchers(HttpMethod.POST, "/signup").anonymous()
-//            .anyRequest()
-//.authenticated();
-//       http
-//               .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
    
     }
 
