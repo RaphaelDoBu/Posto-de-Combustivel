@@ -34,7 +34,7 @@ public class ClienteController {
 	}
 	
     @RequestMapping(method=RequestMethod.GET, value="/cliente/{id}")
-    @ApiOperation(value = "Listagem de um cliente")
+    @ApiOperation(value = "Exibir um cliente")
 	public Optional<Cliente> getCliente(@PathVariable("id") Long id){
 		return clienteService.findById(id);
 	}
