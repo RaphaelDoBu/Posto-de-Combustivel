@@ -1,7 +1,5 @@
 package com.projetoposto.posto;
 
-import java.util.List;
-import java.util.Optional;
 import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -50,13 +48,13 @@ public class PostoController {
 	
     @RequestMapping(method=RequestMethod.DELETE, value="/posto/{id}")
     @ApiOperation(value = "Exclusão de um posto")
-    public void	deletarPosto(Posto posto){
+    public void	deletarPosto(@RequestBody Posto posto){
     	postoService.delete(posto);
 	}
     
     @RequestMapping(method=RequestMethod.PUT, value="/posto/{id}")
     @ApiOperation(value = "Atualização dos dados de um posto")
-    public ResponseEntity<Posto> updateCliente(Posto posto){
+    public ResponseEntity<Posto> updateCliente(@RequestBody Posto posto){
     	Posto data = this.userService.save(posto);
 		return new ResponseEntity<>(data, HttpStatus.OK);
 	}
