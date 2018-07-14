@@ -40,19 +40,19 @@ public class ClienteController {
 	}
 	
     @RequestMapping(method=RequestMethod.POST, value="/cliente")
-    @ApiOperation(value = "Criação de um clientes")
+    @ApiOperation(value = "Criação de um cliente")
 	public Cliente cadastroCliente(@RequestBody Cliente cliente){
 		return userSerice.save(cliente);
 	}
 	
     @RequestMapping(method=RequestMethod.DELETE, value="/cliente/{id}")
-    @ApiOperation(value = "Deletar um clientes")
+    @ApiOperation(value = "Remove um cliente")
     public void	deletarCliente(Cliente cliente){
 		clienteService.delete(cliente);
 	}
 	
     @RequestMapping(method=RequestMethod.PUT, value="/cliente/{id}")
-    @ApiOperation(value = "Atualização dos dados de um clientes")
+    @ApiOperation(value = "Atualização dos dados de um cliente")
 	public Cliente updateCliente(Cliente cliente){
 		return userSerice.save(cliente);
 	}
