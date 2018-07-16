@@ -43,7 +43,7 @@ public class PostoController {
     public ResponseEntity<Posto> cadastroPosto(@RequestBody Posto posto){
     	if (posto.getUsername()!= null && posto.getPassword()!= null){
 	    	Posto data = this.userService.save(posto);
-			return new ResponseEntity<>(data, HttpStatus.OK);
+			return new ResponseEntity<>(data, HttpStatus.CREATED);
     	}else{
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     	}

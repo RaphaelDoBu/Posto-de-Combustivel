@@ -50,7 +50,7 @@ public class ClienteController {
 	public ResponseEntity<Cliente> cadastroCliente(@RequestBody Cliente cliente){
 		if (cliente.getUsername()!= null && cliente.getPassword()!= null){
 			Cliente data = this.userService.save(cliente);
-			return new ResponseEntity<>(data, HttpStatus.OK);
+			return new ResponseEntity<>(data, HttpStatus.CREATED);
     	}else{
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     	}

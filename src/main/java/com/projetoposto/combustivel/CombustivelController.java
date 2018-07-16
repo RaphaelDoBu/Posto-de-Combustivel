@@ -49,7 +49,7 @@ public class CombustivelController {
     public ResponseEntity<Combustivel> cadastroCombustivel(@PathVariable(value="idPosto") Long idPosto, @RequestBody Combustivel combustivel){
     	if (combustivel.getNome() != null){
 	    	Combustivel data = this.combustivelService.save(idPosto, combustivel);
-			return new ResponseEntity<>(data, HttpStatus.OK);
+			return new ResponseEntity<>(data, HttpStatus.CREATED);
     	}else{
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     	}
