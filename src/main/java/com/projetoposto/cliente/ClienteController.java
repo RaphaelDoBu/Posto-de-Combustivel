@@ -5,6 +5,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,7 +28,8 @@ public class ClienteController {
 	private ClienteService clienteService;
 	@Autowired
 	private UserService userService;
-																																																																																																													
+				
+	@PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
     @RequestMapping(method=RequestMethod.GET, value="/clientes")
     @ApiOperation(value = "Listagem de todos os clientes")
 	public ResponseEntity<Collection<Cliente>> getClientes(){
@@ -35,6 +37,7 @@ public class ClienteController {
     	return new ResponseEntity<>(data, HttpStatus.OK);
 	}
 	
+	@PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
     @RequestMapping(method=RequestMethod.GET, value="/cliente/{id}")
     @ApiOperation(value = "Exibir um cliente")
 	public ResponseEntity<Cliente> getCliente(@PathVariable("id") Long id){
@@ -53,12 +56,14 @@ public class ClienteController {
     	}
 	}
 	
+	@PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
     @RequestMapping(method=RequestMethod.DELETE, value="/cliente/{id}")
     @ApiOperation(value = "Remove um cliente")
     public void	deletarCliente(@RequestBody Cliente cliente){
 		clienteService.delete(cliente);
 	}
 	
+	@PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
     @RequestMapping(method=RequestMethod.PUT, value="/cliente/{id}")
     @ApiOperation(value = "Atualização dos dados de um cliente")
 	public ResponseEntity<Cliente> updateCliente(@RequestBody Cliente cliente){

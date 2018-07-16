@@ -4,6 +4,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import com.projetoposto.user.UserService;
@@ -21,13 +22,15 @@ public class PostoController {
 	@Autowired
 	private UserService userService;
 	
+	@PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
     @RequestMapping(method=RequestMethod.GET, value="/postos")
     @ApiOperation(value = "Listagem de todos os postos")
     public ResponseEntity<Collection<Posto>> getPostos(){
     	Collection<Posto> data = postoService.findAll();
     	return new ResponseEntity<>(data, HttpStatus.OK);
 	}
-								
+			
+	@PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
     @RequestMapping(method=RequestMethod.GET, value="/posto/{id}")
     @ApiOperation(value = "Exibição de um posto")
     public ResponseEntity<Posto> getPosto(@PathVariable Long id){
@@ -46,12 +49,14 @@ public class PostoController {
     	}
 	}
 	
+	@PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
     @RequestMapping(method=RequestMethod.DELETE, value="/posto/{id}")
     @ApiOperation(value = "Exclusão de um posto")
     public void	deletarPosto(@RequestBody Posto posto){
     	postoService.delete(posto);
 	}
     
+	@PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
     @RequestMapping(method=RequestMethod.PUT, value="/posto/{id}")
     @ApiOperation(value = "Atualização dos dados de um posto")
     public ResponseEntity<Posto> updateCliente(@RequestBody Posto posto){
