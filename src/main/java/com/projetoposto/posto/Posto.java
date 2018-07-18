@@ -49,6 +49,14 @@ public class Posto extends User{
 		
 	}
 
+	public Posto(String nome, String endereco, String horarioAberto, String horarioFechado, String cnpj) {
+		this.nome = nome;
+		this.endereco = endereco;
+		this.horarioAberto = horarioAberto;
+		this.horarioFechado = horarioFechado;
+		this.cnpj = cnpj;
+	}
+
 	public Long getId() {
 		return id;
 	}
