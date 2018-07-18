@@ -7,21 +7,22 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.projetoposto.cliente.Cliente;
 import com.projetoposto.posto.Posto;
 import com.projetoposto.projetoPosto.ProjetoPostoApplicationTests;
 
-
 @RunWith(SpringRunner.class)
 @SpringBootTest (classes = { ProjetoPostoApplicationTests.class})
-public class CombustivelTeste {
+public class ClienteTeste {
 	
 	@Test
-	public void criarCombustivel() {
-		Posto posto = new Posto("Posto Ipiranga", "Rua Floriano Peixoto", "06:30", "22:00", "22112212");
-		posto.setUsername("postouser");
-		posto.setPassword("postouser");
+	public void criarCliente() {
+		Cliente cliente = new Cliente("Jose da Silva", "jose@gmail.com");
+		cliente.setUsername("postouser");
+		cliente.setPassword("postouser");
 		
-		assertEquals(posto.getNome(), "Posto Ipiranga");
-		
+		assertEquals(cliente.getNome(), "Jose da Silva");
+		assertEquals(cliente.getEmail(), "jose@gmail.com");
+
 	}
 }

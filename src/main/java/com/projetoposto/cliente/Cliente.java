@@ -31,6 +31,12 @@ public class Cliente extends User{
 	public Cliente(){
 		
 	}
+	
+	public Cliente(String nome, String email) {
+		super();
+		this.nome = nome;
+		this.email = email;
+	}
 
 	public Long getId() {
 		return id;
