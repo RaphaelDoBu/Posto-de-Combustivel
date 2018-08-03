@@ -32,7 +32,7 @@ public class ProjetoPostoApplication {
 	        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 	        CorsConfiguration config = new CorsConfiguration();
 	        config.setAllowCredentials(true);
-	        config.setAllowedOrigins(Collections.singletonList("http://localhost:4200"));
+	        config.setAllowedOrigins(Collections.singletonList("http://de-olho-nos-postos.herokuapp.com"));
 	        config.setAllowedMethods(Collections.singletonList("*"));
 	        config.setAllowedHeaders(Collections.singletonList("*"));
 	        source.registerCorsConfiguration("/**", config);

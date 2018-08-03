@@ -12,7 +12,7 @@ import com.projetoposto.user.UserService;
 import io.swagger.annotations.ApiOperation;
 
 
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+@CrossOrigin(origins = "http://de-olho-nos-postos.herokuapp.com", maxAge = 3600)
 @RestController
 public class PostoController {
 	
