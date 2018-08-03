@@ -50,8 +50,8 @@ public class SwaggerConfig {
 			"jose.bu@ccc.ufcg.edu.br" );
 
 	public static final ApiInfo DEFAULT_API_INFO = new ApiInfoBuilder()
-			.title("De Olho no Posto - Server - Swagger API")
-			.description("De Olho no Posto - Server - Swagger API")
+			.title("De Olho nos Postos - Server - Swagger API")
+			.description("De Olho nos Postos - Server - Swagger API")
 			.version("0.0.1")
 			.termsOfServiceUrl("http://www.termsofservice.url")
 			.contact(DEFAULT_CONTACT)
