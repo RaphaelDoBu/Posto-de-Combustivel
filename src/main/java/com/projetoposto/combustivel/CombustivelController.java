@@ -20,7 +20,7 @@ import com.projetoposto.posto.Posto;
 import io.swagger.annotations.ApiOperation;
 
 
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+@CrossOrigin(origins = "https://localhost:4200", maxAge = 3600)
 @RestController
 public class CombustivelController {
 	
