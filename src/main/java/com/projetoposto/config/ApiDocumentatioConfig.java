@@ -9,7 +9,7 @@ import io.swagger.annotations.SwaggerDefinition;
 
 @SwaggerDefinition(
 		info = @Info(
-				title = "De Olho no Posto - Server - Swagger API", 
+				title = "De Olho nos Postos - Server - Swagger API", 
 				description = "De Olho no Posto - Server - Swagger API", 
 				version = "0.0.1", 
 				contact = @Contact(
