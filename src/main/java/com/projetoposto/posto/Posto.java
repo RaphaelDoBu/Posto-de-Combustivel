@@ -11,6 +11,7 @@ import com.projetoposto.combustivel.Combustivel;
 import com.projetoposto.user.User;
 
 @Entity
+@Table(name="TB_POSTO")
 public class Posto extends User{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
