@@ -1,7 +1,7 @@
 # Posto-de-Combustivel
 Sistema Web que faz a listagem dos preços, endereço, avaliação dos postos de combustiveis para os clientes.
 
-Tecnologias utilizadas: Spring Boot, Spring Security com JWT, PostgreSQL, Swagger. 
+Tecnologias utilizadas: Spring Boot, Spring Security com JWT, PostgreSQL, Swagger
 
 ## Deploy (Heroku)
 Front-End: https://de-olho-nos-postos.herokuapp.com
