@@ -10,12 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.projetoposto.avaliacao.Avaliacao;
 import com.projetoposto.posto.Posto;
 
 @Entity
+@Table(name="TB_COMBUSTIVEL")
 public class Combustivel {
 	
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)

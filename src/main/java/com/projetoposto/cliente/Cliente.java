@@ -9,11 +9,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.projetoposto.avaliacao.Avaliacao;
 import com.projetoposto.user.User;
 
 @Entity
+@Table(name="TB_CLIENTE")
 public class Cliente extends User{
 	
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
