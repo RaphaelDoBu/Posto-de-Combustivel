@@ -34,7 +34,7 @@ public class AvaliacaoController {
 	}
 	
 	@PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
-	@RequestMapping(method=RequestMethod.POST, value="cliente/{idCliente}/posto/{idPosto}/combustivel/{idCombustivel}/avaliacao")
+	@RequestMapping(method=RequestMethod.POST, value="/cliente/{idCliente}/posto/{idPosto}/combustivel/{idCombustivel}/avaliacao")
     @ApiOperation(value = "Cadastro de uma avaliação por combustivel de um posto feito pelo cliente")
 	public ResponseEntity<Avaliacao> cadastroAvalicaoCombustivel(@PathVariable(value="idPosto") Long idPosto, @PathVariable(value="idCliente") Long idCliente, 
 			@PathVariable(value="idCombustivel") Long idCombustivel, @RequestBody Avaliacao avaliacao){
@@ -47,7 +47,7 @@ public class AvaliacaoController {
 	}
 	
 	@PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
-	@RequestMapping(method=RequestMethod.POST, value="cliente/{idCliente}/posto/{idPosto}/combustivel/{idCombustivel}/avaliacao/{idAvaliacao}")
+	@RequestMapping(method=RequestMethod.POST, value="/cliente/{idCliente}/posto/{idPosto}/combustivel/{idCombustivel}/avaliacao/{idAvaliacao}")
     @ApiOperation(value = "Remover uma avaliação por combustivel de um posto feito pelo cliente")
 	public void deletarAvaliacaoCombustivel(@PathVariable(value="idPosto") Long idPosto, @PathVariable(value="idCliente") Long idCliente, 
 			@PathVariable(value="idCombustivel") Long idCombustivel, @PathVariable(value="idAvaliacao") Long idAvaliacao){

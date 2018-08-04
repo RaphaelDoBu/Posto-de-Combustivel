@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Repository
 @RepositoryRestResource
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://de-olho-nos-postos.herokuapp.com")
 public interface PostoRepository extends JpaRepository<Posto, Long>{
 	 Posto findByUsername(String username);
 	 

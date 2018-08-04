@@ -28,7 +28,7 @@ public class CombustivelController {
 	private CombustivelService combustivelService;
 										
 	@PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
-    @RequestMapping(method=RequestMethod.GET, value="posto/{id}/combustiveis")
+    @RequestMapping(method=RequestMethod.GET, value="/posto/{id}/combustiveis")
     @ApiOperation(value = "Listagem de todos os combustiveis de um posto")
     public ResponseEntity<Collection<Combustivel>> getCombustiveis(@PathVariable(value="id") Long idPosto){
     	Collection<Combustivel> data = this.combustivelService.findAll(idPosto);
@@ -36,7 +36,7 @@ public class CombustivelController {
 	}
 	
 	@PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
-    @RequestMapping(method=RequestMethod.GET, value="posto/{idPosto}/combustivel/{id}")
+    @RequestMapping(method=RequestMethod.GET, value="/posto/{idPosto}/combustivel/{id}")
     @ApiOperation(value = "Exibir um combustivel de um posto")
     public ResponseEntity<Combustivel> getCombustivel(@PathVariable(value="idPosto") Long idPosto, @PathVariable("id") Long id){
     	Combustivel data = this.combustivelService.findById(idPosto, id);
@@ -44,7 +44,7 @@ public class CombustivelController {
 	}
 	
 	@PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
-    @RequestMapping(method=RequestMethod.POST, value="posto/{idPosto}/combustivel")
+    @RequestMapping(method=RequestMethod.POST, value="/posto/{idPosto}/combustivel")
     @ApiOperation(value = "Cadastro de um combustivel de um posto feito pelo dono do posto")
     public ResponseEntity<Combustivel> cadastroCombustivel(@PathVariable(value="idPosto") Long idPosto, @RequestBody Combustivel combustivel){
     	if (combustivel.getNome() != null){
@@ -56,14 +56,14 @@ public class CombustivelController {
 	}
 	
 	@PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
-    @RequestMapping(method=RequestMethod.DELETE, value="posto/{idPosto}/combustivel/{id}")
+    @RequestMapping(method=RequestMethod.DELETE, value="/posto/{idPosto}/combustivel/{id}")
     @ApiOperation(value = "Exclusão de um combustivel de um posto feito pelo dono do posto")
     public void	deletarCombustivel(@PathVariable(value="idPosto") Long idPosto, @PathVariable("id") Long id){
     	combustivelService.delete(idPosto, id);
 	}
 	
 	@PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
-    @RequestMapping(method=RequestMethod.PUT, value="posto/{idPosto}/combustivel/{id}")
+    @RequestMapping(method=RequestMethod.PUT, value="/posto/{idPosto}/combustivel/{id}")
     @ApiOperation(value = "Atualização dos dados de um combustivel de um posto feito pelo dono do posto")
     public ResponseEntity<Combustivel> updateCombustivel(@PathVariable(value="idPosto") Long idPosto, @PathVariable(value="id") Long idCombustivel,
 											@RequestBody Combustivel combustivel){

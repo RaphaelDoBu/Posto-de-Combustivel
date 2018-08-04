@@ -12,7 +12,7 @@ import com.projetoposto.posto.Posto;
 
 @Repository
 @RepositoryRestResource
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://de-olho-nos-postos.herokuapp.com")
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 	 Cliente findByUsername(String username);
 
