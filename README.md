@@ -19,3 +19,5 @@ https://github.com/RaphaelDoBu/front-end-posto
 ## Relatório
 https://docs.google.com/document/d/1q9TOct0ECa0bH6s55kN4rXeKdPKfIFNyGdHoyNsP6EQ/edit#
 
+## Vídeo Explicativo
+https://www.youtube.com/watch?v=hAbRTSn1090
